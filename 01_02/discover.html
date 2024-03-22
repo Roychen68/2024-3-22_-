@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div.card{
+            width: 700px;
+            height: auto;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"></div>
+    <div class="card">
+        <img src="./img/0af5d0dc-ae27-11ee-a0d7-b49691e6ead0_1200x.jpg" alt="" class="card-top">
+        <div class="card-body">
+            <h3 class="card-title">設計展資訊區</h3>
+            <p class="card-text">U.S CV season</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="./img/bbdc8fc4-b059-11ee-94e5-b49691e6ead0_1200x.jpg" alt="" class="card-top">
+        <div class="card-body">
+            <h3 class="card-title">作品介紹區</h3>
+            <p class="card-text"></p>
+            <p class="content">yeah u click this</p>
+            <button class="btn btn-primary">Read less</button>
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    $(".nav").load("header.html")
+
+    $(".btn-primary").click(function () {
+        if ($(".btn-primary").text()=="Read more") {
+            $(".content").slideToggle("fast")
+            $(".btn-primary").text("Read less")
+        } else {
+            $(".content").slideToggle("fast")
+            $(".btn-primary").text("Read more")
+        }
+    })
+</script>

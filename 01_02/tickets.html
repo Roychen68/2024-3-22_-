@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div.card{
+            width: 900px;
+            height: 400px;
+            margin: auto;
+        }
+        div.input-group{
+            padding: 10px 12px;
+        }
+        input.form-control{
+            border: 2px solid grey;
+        }
+        span.input-group-text{
+            border-radius: 5px 0 0 5px;
+            border: 1px solid orange; 
+        }
+        button.btn-primary{
+            width: 100px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"></div>
+    <div class="card">
+        <div class="input-group">
+            <span class="input-group-text">First name</span>
+            <input type="text" class="form-control" id="firstname">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Last name</span>
+            <input type="text" class="form-control" id="lastname">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Phone</span>
+            <input type="text" class="form-control" id="phone">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Password</span>
+            <input type="text" class="form-control" id="password">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Verification</span>
+            <span class="input-group-text veri" style="border-radius: 0;"></span>
+            <input type="text" class="form-control" id="veri">
+            <button class="btn btn-info" onclick="get()" style="border-radius: 0px 5px 5px 0;">Refresh</button>
+        </div>
+        <button class="btn btn-primary" onclick="post()">Submit</button>
+    </div>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    let veri
+$(".nav").load("header.html")
+$(document).ready(function () {
+    $.get("veri.php",function (res) {
+        $(".veri").text(res)
+        veri=res
+        console.log(veri);
+    })
+})
+function get() {
+    $.get("veri.php",function (res) {
+        $(".veri").text(res)
+        veri=res
+        console.log(veri);
+    })
+}
+
+function post() {
+    if ($("#veri").val()==veri) {
+        var formdata={
+            firstname: $("#firstname").val(),
+            lastname: $("#lastname").val(),
+            phone: $("#phone").val(),
+            password: $("#password").val()
+        }
+        $.post("post.php",formdata,function (res) {
+            console.log(res);
+            alert("data has been send succesful")
+            location.href ="home.html"
+        })
+    } else {
+        alert("please check your verifiaction");
+        $("#veri").css("border","2px solid red")
+    }
+}
+</script>

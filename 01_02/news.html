@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div.map{
+            height: 600px;
+            display: flex;
+            margin: auto;
+        }
+        img.map{
+            height: 600px;
+            width: 800px;
+        }
+        div.card{
+            width: 700px;
+        }
+        img.location{
+            height: 20px;
+            position: absolute;
+            cursor: pointer;
+        }
+        #roc{
+            margin-left: 630px;
+            margin-top: 300px;
+        }
+        #nazi{
+            margin-left: 390px;
+            margin-top: 230px;
+        }
+        #usa{
+            margin-left: 100px;
+            margin-top: 230px;
+        }
+        #uk{
+            margin-left: 350px;
+            margin-top: 230px;
+        }
+        #soviet{
+            margin-left: 580px;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"></div>
+    <div class="map">
+        <img src="./img/soviet.png" alt="" class="location" id="soviet">
+        <img src="./img/UK.png" alt="" class="location" id="uk">
+        <img src="./img/flag_USA_a608afcc194232095536ebc93508eb7b4b68cf46bc3600cd28b4afd0ad9a38b3.png" alt="" class="location" id="usa">
+        <img src="./img/german.png" alt="" class="location" id="nazi">
+        <img src="./img/ROC.png" alt="" class="location" id="roc">
+        <img src="./img/world-map.jpg" alt="" class="map">
+        <div class="card">
+            <video src="./vid/roc.mp4" class="card-img-top" controls></video>
+            <div class="card-body">
+                <h2 class="card-title">R.O.C.</h2>
+                <p class="card-text">Replupig of china</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    $(".nav").load("header.html")
+
+    $("#roc").click(function () {
+        $("video").attr("src","./vid/roc.mp4")
+        $(".card-title").text("R.O.C.")
+        $(".card-text").text("Repuplig of china")
+    })
+    $("#nazi").click(function () {
+        $("video").attr("src","./vid/nazi.mp4")
+        $(".card-title").text("German")
+        $(".card-text").text("Nazi lol")
+    })
+    $("#usa").click(function () {
+        $("video").attr("src","./vid/USA.mp4")
+        $(".card-title").text("USA")
+        $(".card-text").text("United States of America")
+    })
+    $("#uk").click(function () {
+        $("video").attr("src","./vid/UK.mp4")
+        $(".card-title").text("UK")
+        $(".card-text").text("United Kindom")
+    })
+    $("#soviet").click(function () {
+        $("video").attr("src","./vid/ussr.mp4")
+        $(".card-title").text("Soviet")
+        $(".card-text").text("U.S.S.R.")
+    })
+</script>
